@@ -1,0 +1,27 @@
+.root {
+  @apply flex flex-col items-center justify-center h-full gap-6;
+}
+.logo {
+  width: 30vmin;
+}
+.content {
+  @apply text-white text-center text-xl md:text-2xl flex box-border;
+
+  width: 90vmin;
+  z-index: 1;
+}
+.buttons {
+  @apply flex flex-col items-center justify-center gap-3 w-max;
+}
+.btn {
+  @apply bg-none text-white rounded-3xl text-center cursor-pointer;
+  padding: 0.8em 4em;
+  font-size: 1em;
+  width: 100% !important;
+  cursor: pointer;
+  border: 1px solid var(--btn-accent);
+  z-index: 1;
+}
+.primary {
+  @apply bg-primary-btn;
+}

@@ -1,0 +1,21 @@
+@import "./base.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  letter-spacing: -0.1ch;
+  line-height: 1;
+}
+.fit {
+  min-height: calc(100vh - 88px);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+}
