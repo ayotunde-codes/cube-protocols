@@ -1,0 +1,18 @@
+.root {
+  @apply h-full flex flex-col items-center gap-4;
+  padding-top: 10%;
+}
+
+.logo {
+  width: 25vmin;
+  z-index: 1;
+}
+.container {
+  @apply bg-base rounded-2xl;
+  width: 80vmin;
+  height: 70%;
+  padding: 2em 20%;
+  z-index: 1;
+  border: 1px solid #571eae;
+  box-shadow: 0px 4px 60px 8px rgba(87, 30, 174, 0.25);
+}

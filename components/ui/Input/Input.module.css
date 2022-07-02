@@ -1,0 +1,27 @@
+.root {
+  @apply w-full grid gap-0;
+  background: none;
+}
+.inputcase {
+  @apply w-full relative h-max;
+  background: none;
+}
+.input {
+  @apply w-full p-3 text-sm rounded-full text-white;
+  border: 1px solid var(--btn-accent);
+  background: none;
+  &:focus {
+    outline: none;
+    border-color: var(--btn-accent);
+  }
+}
+.btn {
+  @apply w-max h-max absolute top-1/2 right-4;
+  transform: translateY(-50%);
+}
+.inputError {
+  border: 1px solid var(--error);
+}
+.error {
+  @apply text-error text-sm px-4;
+}

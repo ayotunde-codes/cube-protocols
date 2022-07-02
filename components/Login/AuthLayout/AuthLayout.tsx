@@ -23,14 +23,10 @@ const AuthLayout: FC<Props> = ({ text }) => {
       <div className={s.content}>{text}</div>
       <div className={s.buttons}>
         <Link href="/sign-up">
-          <a>
-            <button className={primaryBtn}>Sign up</button>
-          </a>
+          <a className={primaryBtn}>Sign up</a>
         </Link>
         <Link href="/login">
-          <a>
-            <button className={s.btn}>Login</button>
-          </a>
+          <a className={s.btn}>Login</a>
         </Link>
       </div>
     </div>
