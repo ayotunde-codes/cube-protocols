@@ -6,11 +6,7 @@ const Login = () => {
   return (
     <LoginWrapper>
       <LoginFrame>
-        <Input
-          type="password"
-          placeholder="*******"
-          error="password must be more than 8 characters"
-        />
+        <Input type="password" placeholder="*******" />
       </LoginFrame>
     </LoginWrapper>
   );
