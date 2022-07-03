@@ -18,8 +18,8 @@
 
   /* media query mobile */
   @media (max-width: 768px) {
-    width: 90vmin;
-    height: 80%;
+    width: 80vmin;
+    height: 70%;
     padding: 2em 10%;
   }
 }
