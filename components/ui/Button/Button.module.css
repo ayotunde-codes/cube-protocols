@@ -1,0 +1,71 @@
+.btn {
+  @apply rounded-3xl text-center cursor-pointer flex items-center justify-center gap-3;
+  padding: 0.8em 4em;
+  font-size: 1em;
+  width: 100% !important;
+  cursor: pointer;
+  /* border: 1px solid var(--btn-accent); */
+  /* z-index: 1; */
+}
+.primary {
+  @apply bg-primary-btn text-white;
+}
+.secondary {
+  @apply bg-base text-white;
+
+  border: 1px solid var(--btn-accent);
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.loader {
+  position: relative;
+  border-radius: 50%;
+  width: 1.4em;
+  height: 1.4em;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    transparent 40%,
+    /* var(--error) */ white
+  );
+  animation: animate 2s linear infinite;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0.1em;
+    left: 0.1em;
+    bottom: 0.1em;
+    right: 0.1em;
+    /* background: var(--btn-accent); */
+    background: var(--btn-accent);
+    border-radius: 50%;
+    z-index: 10;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0em;
+    left: 0em;
+    bottom: 0em;
+    right: 0em;
+    background: linear-gradient(
+      45deg,
+      transparent,
+      transparent 40%,
+      /* var(--error) */ white
+    );
+    border-radius: 50%;
+    z-index: 10;
+    z-index: 1;
+    filter: blur(30px);
+  }
+}

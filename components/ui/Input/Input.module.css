@@ -7,13 +7,18 @@
   background: none;
 }
 .input {
-  @apply w-full p-3 text-sm rounded-full text-white;
+  @apply w-full p-3 text-sm rounded-full bg-base text-white;
   border: 1px solid var(--btn-accent);
-  background: none;
+  /* background: none; */
   &:focus {
+    /* @apply bg-base; */
     outline: none;
+    background: none;
     border-color: var(--btn-accent);
   }
+  /* &:focus::-webkit-input-placeholder {
+    color: var(--btn-accent);
+  } */
 }
 .btn {
   @apply w-max h-max absolute top-1/2 right-4;
