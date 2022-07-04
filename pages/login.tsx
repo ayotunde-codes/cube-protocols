@@ -1,8 +1,11 @@
-import Flex from "components/common/Flex";
 import { LoginFrame, LoginWrapper } from "components/Login";
 import { Button, Input } from "components/ui";
+import { useMoralis } from "react-moralis";
 
 const Login = () => {
+  const moralis = useMoralis();
+  console.log(moralis);
+
   return (
     <LoginWrapper>
       <LoginFrame>

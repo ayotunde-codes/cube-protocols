@@ -7,7 +7,7 @@ const Setup = () => {
     <LoginWrapper>
       <LoginFrame>
         <div className="flex items-center pb-2 font-medium flex-col">
-          <h2 className=" text-xl text-pup">Signup</h2>
+          <h2 className=" text-xl text-pup">Setup Account</h2>
           <p className=" text-white text-lg font-medium">
             Choose a username and profile picture
           </p>

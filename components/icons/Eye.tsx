@@ -13,16 +13,16 @@ const Eye = ({ ...props }) => {
       <path
         d="M10 4.37439C3.75 4.37439 1.25 10 1.25 10C1.25 10 3.75 15.6244 10 15.6244C16.25 15.6244 18.75 10 18.75 10C18.75 10 16.25 4.37439 10 4.37439Z"
         stroke="#A59AAD"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="2"
+        strokeLinejoin="round"
+        strokeLinecap="round"
       />
       <path
         d="M10 13.1251C11.7259 13.1251 13.125 11.726 13.125 10.0001C13.125 8.27417 11.7259 6.87506 10 6.87506C8.27411 6.87506 6.875 8.27417 6.875 10.0001C6.875 11.726 8.27411 13.1251 10 13.1251Z"
         stroke="#A59AAD"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
