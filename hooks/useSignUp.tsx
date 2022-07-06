@@ -1,11 +1,14 @@
-import { useReducer } from "react";
+import Router from "next/router";
+import { useEffect, useReducer } from "react";
 import { useMoralis } from "react-moralis";
 
 interface stateValue {
   email: string;
+  username: string;
   password: string;
   confirmPassword: string;
   emailError: string | null;
+  usernameError: string | null;
   passwordError: string | null;
   confirmPasswordError: string | null;
   loading: boolean;
@@ -13,9 +16,11 @@ interface stateValue {
 
 const initialSignUpData = {
   email: "",
+  username: "",
   password: "",
   confirmPassword: "",
   emailError: null,
+  usernameError: null,
   passwordError: null,
   confirmPasswordError: null,
   loading: false,
@@ -23,9 +28,11 @@ const initialSignUpData = {
 
 type PayloadValue = {
   email?: string;
+  username?: string;
   password?: string;
   confirmPassword?: string;
   emailError?: string | null;
+  usernameError?: string | null;
   passwordError?: string | null;
   confirmPasswordError?: string | null;
   loading?: boolean;
@@ -34,9 +41,11 @@ type PayloadValue = {
 type Action = {
   type:
     | "SET_EMAIL"
+    | "SET_USERNAME"
     | "SET_PASSWORD"
     | "SET_CONFIRM_PASSWORD"
     | "SET_EMAIL_ERROR"
+    | "SET_USERNAME_ERROR"
     | "SET_PASSWORD_ERROR"
     | "SET_CONFIRM_PASSWORD_ERROR"
     | "SET_LOADING";
@@ -47,6 +56,11 @@ type Action = {
 function reducer(state: stateValue, action: Action) {
   switch (action.type) {
     case "SET_EMAIL":
+      return {
+        ...state,
+        ...action.payload,
+      };
+    case "SET_USERNAME":
       return {
         ...state,
         ...action.payload,
@@ -62,6 +76,11 @@ function reducer(state: stateValue, action: Action) {
         ...action.payload,
       };
     case "SET_EMAIL_ERROR":
+      return {
+        ...state,
+        ...action.payload,
+      };
+    case "SET_USERNAME_ERROR":
       return {
         ...state,
         ...action.payload,
@@ -94,29 +113,18 @@ function useSignUpData() {
   };
 }
 
-export function useSignUp() {
-  const { signup } = useMoralis();
+export default function useSignUp() {
+  // 🎃 Hook is to handle SignUp makes use of UseMoralis and useSignData
+  const { signup, authError, isAuthenticated, isAuthenticating, user } =
+    useMoralis();
   const { state, dispatch } = useSignUpData();
-  const { email, password, confirmPassword } = state;
-
-  const username = "samuel";
-
-  function loadingTrue() {
-    dispatch({
-      type: "SET_LOADING",
-      payload: { loading: true },
-    });
-  }
-  function loadingFalse() {
-    dispatch({
-      type: "SET_LOADING",
-      payload: { loading: false },
-    });
-  }
+  const { email, password, confirmPassword, username } = state;
 
   const validateForm = () => {
-    const { email, password, confirmPassword } = state;
-    if (email.length === 0) {
+    // 👩‍🚒 Function validates form value passed into it.....
+    // 🟠 Also set error state of the for through dispatch
+    const { email, password, confirmPassword, username } = state;
+    if (username.length === 0) {
       dispatch({
         type: "SET_EMAIL_ERROR",
         payload: {
@@ -157,48 +165,40 @@ export function useSignUp() {
       });
     }
     if (
-      email.length > 0 &&
+      username.length > 0 &&
       password.length > 0 &&
       confirmPassword.length > 0 &&
       password === confirmPassword
     ) {
-      return true;
+      return false;
     }
-    return false;
+    return true;
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-
-    await validateForm();
-    if (!validateForm()) {
-      return;
+    if (validateForm()) {
+      await signup(username, password);
     }
-    try {
-      loadingTrue();
-      //   const data = await signup(username, password, email);
-      const data = await signup("VEk1zO9DPMCfQe", password, email);
-      console.log(data);
-      console.group("group", data);
-    } catch (error) {
-      console.log(error);
-    }
-    // signup(username, password, email).then(
-    //   (data) => {
-    //     console.log(data, "data");
-    //   },
-    //   (error) => {
-    //     console.log(error, "error");
-    //   }
-    // );
-    // const { data, error } = await signup(email, password, confirmPassword);
+    return;
 
-    loadingFalse();
+    // loadingFalse();
   };
+
+  useEffect(() => {
+    if (isAuthenticated && user) {
+      Router.push("/setup");
+    }
+    // 🍃 Redirect Once signUp successfull
+  }, [isAuthenticated, user]);
 
   return {
     state,
     dispatch,
     handleSubmit,
+    authError,
+    isAuthenticated,
+    isAuthenticating,
+    user,
   };
 }

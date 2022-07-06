@@ -1,0 +1,5 @@
+.root {
+  @apply text-white p-4 flex absolute -bottom-14 rounded-2xl;
+
+  background: var(--error);
+}
