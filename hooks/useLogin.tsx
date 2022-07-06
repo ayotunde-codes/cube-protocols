@@ -1,3 +1,4 @@
+import Router from "next/router";
 import { useEffect, useReducer } from "react";
 import { useMoralis } from "react-moralis";
 import useErrorModalValue from "./useErrorModalValue";
@@ -117,7 +118,7 @@ export default function useLogin() {
 
   useEffect(() => {
     if (isAuthenticated) {
-      console.log("logged in");
+      Router.push("/feed");
     }
     // 🍃 Redirect Once signUp successfull
   }, [isAuthenticated]);

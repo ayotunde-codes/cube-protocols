@@ -1,6 +1,7 @@
 import Router from "next/router";
 import { useEffect, useReducer } from "react";
 import { useMoralis } from "react-moralis";
+import useErrorModalValue from "./useErrorModalValue";
 
 interface stateValue {
   email: string;
@@ -170,9 +171,9 @@ export default function useSignUp() {
       confirmPassword.length > 0 &&
       password === confirmPassword
     ) {
-      return false;
+      return true;
     }
-    return true;
+    return false;
   };
 
   const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -191,12 +192,13 @@ export default function useSignUp() {
     }
     // 🍃 Redirect Once signUp successfull
   }, [isAuthenticated, user]);
+  const error = useErrorModalValue(authError);
 
   return {
     state,
     dispatch,
     handleSubmit,
-    authError,
+    error,
     isAuthenticated,
     isAuthenticating,
     user,

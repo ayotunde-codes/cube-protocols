@@ -30,7 +30,7 @@ export default function useUserDataUpdate() {
     const query = new Moralis.Query(User);
     const myDetails = await query.first();
 
-    if (setSelectedpfp) {
+    if (selectedpfp) {
       myDetails.set("pfp", selectedpfp);
     }
 
@@ -42,7 +42,7 @@ export default function useUserDataUpdate() {
     Router.push("/feed");
     setLoading(false);
 
-    window.location.reload();
+    // window.location.reload();
   };
 
   return {

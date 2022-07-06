@@ -6,6 +6,7 @@ const EnsureProtectRoute = ({ children }) => {
   const { user, isAuthenticated } = useMoralis();
   const publicAppPages: string[] = [
     // 🔵 NOTE: public route without need for authentication
+    " ",
     "login",
     "sign-up",
     "forgot-password",
@@ -24,7 +25,7 @@ const EnsureProtectRoute = ({ children }) => {
     //   Router.push("/login");
     // }
     path.current = "active";
-  });
+  }, []);
 
   return path.current === "active" ? children : null;
 };

@@ -1,17 +1,12 @@
 import { LoginFrame, LoginWrapper } from "components/Login";
-import { Button, Input } from "components/ui";
+import { Button, Input, Pop } from "components/ui";
 import { useSignUp } from "hooks";
 import Head from "next/head";
-import { useEffect } from "react";
-// import { useSignUp } from "hooks/useSignUp";
 
 const SignUp = () => {
-  const { state, dispatch, handleSubmit, isAuthenticating, authError } =
+  const { state, dispatch, handleSubmit, isAuthenticating, error } =
     useSignUp();
 
-  if (authError) {
-    throw new Error(authError.message);
-  }
   return (
     <>
       <Head>
@@ -88,6 +83,7 @@ const SignUp = () => {
               onClick={(e) => handleSubmit(e)}
               loading={isAuthenticating}
             />
+            {error && <Pop text={error} duration={3000} />}
           </div>
         </LoginFrame>
       </LoginWrapper>

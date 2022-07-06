@@ -1,0 +1,16 @@
+.root {
+  @apply bg-base flex h-screen;
+  width: 16%;
+}
+/* .left {
+  @apply  ;
+}
+.right {
+  @apply right-0;
+}
+.vertical {
+  @apply flex-col;
+}
+.horizontal {
+  @apply flex-row;
+} */
