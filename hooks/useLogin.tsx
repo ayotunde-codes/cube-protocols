@@ -118,7 +118,7 @@ export default function useLogin() {
 
   useEffect(() => {
     if (isAuthenticated) {
-      Router.push("/feed");
+      Router.push("/home");
     }
     // 🍃 Redirect Once signUp successfull
   }, [isAuthenticated]);

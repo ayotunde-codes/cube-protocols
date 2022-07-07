@@ -40,6 +40,7 @@ module.exports = {
       },
       textColor: {
         base: "var(--text-base)",
+        "accents-0": "var(--accents-0)",
         primary: "var(--text-primary)",
         secondary: "var(--text-secondary)",
         pup: "var(--text-pup)",

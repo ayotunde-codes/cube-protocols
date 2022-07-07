@@ -2,7 +2,7 @@ import { LoginFrame, LoginWrapper } from "components/Login";
 import { Button, Input, Pop } from "components/ui";
 import { useLogin } from "hooks";
 import Head from "next/head";
-import { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
 
 const Login = () => {
   const { state, dispatch, isAuthenticating, handleSubmit, error } = useLogin();
@@ -60,6 +60,14 @@ const Login = () => {
               onClick={(e) => handleSubmit(e)}
             />
             {error && <Pop text={error} />}
+          </div>
+          <div className=" mt-4">
+            <p className="text-center text-gray-500">
+              Don't have an account?{" "}
+              <Link href="/sign-up">
+                <a className=" text-pup">Signup</a>
+              </Link>
+            </p>
           </div>
         </LoginFrame>
       </LoginWrapper>

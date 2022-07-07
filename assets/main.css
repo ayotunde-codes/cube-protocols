@@ -9,6 +9,7 @@ body {
   font-family: sans-serif;
   letter-spacing: -0.1ch;
   line-height: 1;
+  background: var(--bg-base);
 }
 .fit {
   min-height: calc(100vh - 88px);

@@ -1,16 +1,55 @@
 .root {
-  @apply bg-base flex h-screen;
+  @apply bg-secondary-2 flex flex-col items-center h-screen;
   width: 16%;
 }
-/* .left {
-  @apply  ;
+.logo {
+  /* @apply w-2/4; */
+  width: 15vmin;
 }
-.right {
-  @apply right-0;
+.container {
+  @apply flex flex-col items-center flex-1;
+  width: 80%;
 }
-.vertical {
-  @apply flex-col;
+.logoWrapper {
+  @apply mt-4 mb-8;
+  width: 80%;
 }
-.horizontal {
-  @apply flex-row;
-} */
+.userProfile {
+  @apply flex w-full gap-2 items-center mt-5 mb-7;
+}
+.userProfileDetails {
+  @apply flex flex-col items-start gap-1;
+}
+.userAddress {
+  @apply text-accents-0 font-medium;
+  font-size: 0.9rem;
+}
+.username {
+  @apply text-white font-medium;
+  font-size: 1rem;
+}
+.profileImage {
+  @apply w-1/5 rounded-full;
+}
+.nav {
+  @apply flex flex-col items-start gap-3 w-full;
+}
+
+.link {
+  @apply flex gap-3 items-center;
+  &:hover {
+    & .icon {
+      color: rgba(255, 255, 255, 0.5);
+    }
+    & .text {
+      color: rgba(255, 255, 255, 0.7);
+    }
+  }
+}
+
+.text {
+  @apply text-accents-0 font-medium cursor-pointer;
+}
+.activeText {
+  @apply text-white font-medium;
+}

@@ -2,6 +2,7 @@ import { LoginFrame, LoginWrapper } from "components/Login";
 import { Button, Input, Pop } from "components/ui";
 import { useSignUp } from "hooks";
 import Head from "next/head";
+import Link from "next/link";
 
 const SignUp = () => {
   const { state, dispatch, handleSubmit, isAuthenticating, error } =
@@ -84,6 +85,15 @@ const SignUp = () => {
               loading={isAuthenticating}
             />
             {error && <Pop text={error} duration={3000} />}
+          </div>
+
+          <div className=" mt-4">
+            <p className="text-center text-gray-500">
+              Already have an account?{" "}
+              <Link href="/login">
+                <a className=" text-pup">Login</a>
+              </Link>
+            </p>
           </div>
         </LoginFrame>
       </LoginWrapper>

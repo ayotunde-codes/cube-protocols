@@ -4,7 +4,7 @@ import { useMoralis } from "react-moralis";
 import pfps from "components/pfp";
 import Image, { StaticImageData } from "next/image";
 import Head from "next/head";
-import { usePermission, useUserDataUpdate } from "hooks";
+import { useUserDataUpdate } from "hooks";
 
 const Setup = () => {
   const {
@@ -16,11 +16,6 @@ const Setup = () => {
     loading,
   } = useUserDataUpdate();
 
-  // 🌈 call the usePermission hook on protected routes
-  usePermission();
-  const { userError } = useMoralis();
-
-  console.log(userError);
   return (
     <>
       <Head>

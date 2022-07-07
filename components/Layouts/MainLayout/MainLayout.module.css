@@ -1,0 +1,6 @@
+.root {
+  @apply flex;
+}
+.container {
+  @apply flex-1;
+}

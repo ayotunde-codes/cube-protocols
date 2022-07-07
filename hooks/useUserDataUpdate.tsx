@@ -39,7 +39,7 @@ export default function useUserDataUpdate() {
     }
 
     await myDetails.save();
-    Router.push("/feed");
+    Router.push("/home");
     setLoading(false);
 
     // window.location.reload();
