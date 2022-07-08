@@ -29,7 +29,7 @@ const EnsureProtectRoute = ({ children }) => {
     path.current = "active";
   }, []);
 
-  return path.current === "active" ? children : null;
+  return path.current ? children : null;
 };
 
 export default EnsureProtectRoute;

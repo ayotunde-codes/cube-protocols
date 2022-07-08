@@ -17,7 +17,7 @@ function MyApp({
       // appId="ArgEurp6lmhndCV6LyrspZul7JyNRJal0q1cnllP"
       // serverUrl="https://je3tfqn7dodg.usemoralis.com:2053/server"
     >
-      {/* 🌈 EnsureProtectRoute ensures protected routes 😅 */}
+      {/* 🌈 EnsureProtectRoute ensures protected routes 😅😅😃 */}
       <EnsureProtectRoute>
         <Layout>
           <Component {...pageProps} />

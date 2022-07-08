@@ -1,5 +1,5 @@
 .root {
-  @apply bg-secondary-2 flex flex-col items-center h-screen;
+  @apply bg-secondary-2 flex flex-col items-center h-full;
   width: 16%;
 }
 .logo {

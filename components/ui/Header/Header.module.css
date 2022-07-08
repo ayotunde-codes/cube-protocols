@@ -1,0 +1,23 @@
+.root {
+  @apply w-full sticky top-0 bg-base py-4;
+  z-index: 1;
+}
+.content {
+  @apply w-full flex justify-between items-center;
+}
+.pageTitle {
+  @apply font-bold text-white text-lg;
+}
+.connectNotify {
+  @apply flex gap-4;
+}
+.connect {
+  @apply border-0 py-1 px-7 outline-none bg-violet  text-white font-medium rounded-3xl;
+  font-size: 0.9rem;
+}
+.notifcation {
+  @apply relative flex items-center justify-center p-2;
+}
+.notice {
+  @apply absolute top-1 -right-3 text-xs w-5 h-5  mr-4 mb-4 rounded-full bg-rose-500 text-white font-bold  flex items-center justify-center;
+}
