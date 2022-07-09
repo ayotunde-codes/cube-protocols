@@ -53,7 +53,7 @@ const SideBar = () => {
                     0,
                     4
                   )}...${user.attributes.ethAddress.slice(38)}`
-                : "Eth Address"}
+                : "No Address"}
             </p>
           </div>
         </div>

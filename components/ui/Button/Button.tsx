@@ -7,13 +7,23 @@ interface buttonProps extends HTMLAttributes<HTMLButtonElement> {
   text: string;
   loadingText?: string;
   look?: "primary" | "secondary" | "tertiary";
+  size?: "small" | "medium" | "large";
 }
-const Button = ({ loading, text, look = "primary", ...rest }: buttonProps) => {
-  // 💡Handles different color styles of button can be futher improved to add other visual styles
+const Button = ({
+  loading,
+  text,
+  look = "primary",
+  size = "medium",
+  ...rest
+}: buttonProps) => {
+  // 💡Handles different color styles and size of button can be futher improved to add other visual styles
   const btnClass = cn(s.btn, {
     [s.primary]: look === "primary",
     [s.secondary]: look === "secondary",
     [s.tertiary]: look === "tertiary",
+    [s.small]: size === "small",
+    [s.medium]: size === "medium",
+    [s.large]: size === "large",
   });
   return (
     <button className={btnClass} {...rest}>

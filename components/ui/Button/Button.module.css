@@ -4,6 +4,9 @@
   font-size: 1em;
   width: 100% !important;
   cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+  }
   /* border: 1px solid var(--btn-accent); */
   /* z-index: 1; */
 }
@@ -14,6 +17,13 @@
   @apply bg-base text-white;
 
   border: 1px solid var(--btn-accent);
+}
+.tertiary {
+  @apply bg-violet text-white;
+}
+.small {
+  padding: 0.1em 1.6em;
+  font-size: 0.9em;
 }
 
 @keyframes animate {

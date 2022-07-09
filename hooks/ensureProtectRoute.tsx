@@ -1,9 +1,9 @@
 import Router, { useRouter } from "next/router";
-import { useEffect, useLayoutEffect, useRef } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef } from "react";
 import { useMoralis } from "react-moralis";
 
 const EnsureProtectRoute = ({ children }) => {
-  const { user, isAuthenticated } = useMoralis();
+  const { isAuthenticated, isInitialized } = useMoralis();
   const publicAppPages: string[] = [
     // 🔵 NOTE: public route without need for authentication
     "/",
@@ -15,21 +15,27 @@ const EnsureProtectRoute = ({ children }) => {
   const path = useRef(null);
   const router = useRouter();
   const currentRoute = router.pathname;
-  useEffect(() => {
-    path.current = currentRoute;
-    // console.log(path.current, "currrent");
-    const isPublicAppPage = publicAppPages.some((page) =>
-      [path.current].includes(page)
-    );
-    // console.log({ isPublicAppPage });
-    if (!user && !isAuthenticated && !isPublicAppPage) {
-      // 💡 NOTE: Redirect to login
-      Router.push("/");
-    }
-    path.current = "active";
-  }, []);
 
-  return path.current ? children : null;
+  const validateRoute = useCallback(() => {
+    if (isAuthenticated) {
+      if (publicAppPages.includes(currentRoute)) {
+        return;
+      }
+    } else {
+      if (!publicAppPages.includes(currentRoute)) {
+        Router.push("/");
+      }
+    }
+  }, [isAuthenticated, currentRoute, publicAppPages]);
+
+  useEffect(() => {
+    path.current = router.pathname;
+    if (isInitialized) {
+      validateRoute();
+    }
+  }, [isInitialized]);
+
+  return children;
 };
 
 export default EnsureProtectRoute;

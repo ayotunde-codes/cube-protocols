@@ -4,7 +4,16 @@ import "@assets/main.css";
 import { MoralisProvider } from "react-moralis";
 import { EnsureProtectRoute } from "hooks";
 
+import { MetaMaskInpageProvider } from "@metamask/providers";
+
+declare global {
+  interface Window {
+    ethereum?: MetaMaskInpageProvider;
+  }
+}
+
 const Noop: FC<PropsWithChildren> = ({ children }) => <>{children}</>;
+
 function MyApp({
   Component,
   pageProps,
