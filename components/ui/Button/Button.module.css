@@ -13,6 +13,9 @@
 .primary {
   @apply bg-primary-btn text-white;
 }
+.error {
+  @apply bg-error text-white;
+}
 .secondary {
   @apply bg-base text-white;
 

@@ -3,6 +3,8 @@ import { useMoralis } from "react-moralis";
 
 export default function useConnectWallet() {
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<string>("");
   const { Moralis, user, authError, userError } = useMoralis();
   const checkIfLinked = () => {
     // 💡 NOTE: Check if user is linked to wallet
@@ -34,18 +36,25 @@ export default function useConnectWallet() {
           setLoading(false);
         } catch (e) {
           console.log(e);
+          setError(true);
+          setErrorMessage(e.message);
           setLoading(false);
         }
+        setLoading(false);
       }
     }
   };
 
-  useEffect(() => {
-    console.log(userError, "userError");
-  }, [userError]);
+  const onClose = () => {
+    setError(false);
+  };
   return {
     connectUserWallet,
     checkIfLinked,
     loading,
+    error,
+    onClose,
+    errorMessage,
   };
+  // 🍾 you have done well 🍾 🎊
 }

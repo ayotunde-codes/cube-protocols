@@ -100,5 +100,5 @@ const SignUp = () => {
     </>
   );
 };
-
+// 🍾 you have done well 🍾 🎊
 export default SignUp;

@@ -6,7 +6,14 @@ interface buttonProps extends HTMLAttributes<HTMLButtonElement> {
   loading?: boolean;
   text: string;
   loadingText?: string;
-  look?: "primary" | "secondary" | "tertiary";
+  look?:
+    | "primary"
+    | "secondary"
+    | "tertiary"
+    | "success"
+    | "error"
+    | "warning"
+    | "info";
   size?: "small" | "medium" | "large";
 }
 const Button = ({
@@ -21,6 +28,8 @@ const Button = ({
     [s.primary]: look === "primary",
     [s.secondary]: look === "secondary",
     [s.tertiary]: look === "tertiary",
+    [s.success]: look === "success",
+    [s.error]: look === "error",
     [s.small]: size === "small",
     [s.medium]: size === "medium",
     [s.large]: size === "large",
@@ -31,5 +40,5 @@ const Button = ({
     </button>
   );
 };
-
+// 🍾 you have done well 🍾 🎊
 export default Button;

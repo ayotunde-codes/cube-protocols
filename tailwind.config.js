@@ -37,6 +37,10 @@ module.exports = {
         "primary-btn": "var(--btn-accent)",
         red: "var(--red)",
         base: "var(--bg-base)",
+        "base-light": "var(--bg-base-light)",
+        "base-dark": "var(--bg-base-dark)",
+        "overlay-base": "var(--overlay-base)",
+        error: "var(--error)",
       },
       textColor: {
         base: "var(--text-base)",

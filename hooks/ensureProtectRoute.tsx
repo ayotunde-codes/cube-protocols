@@ -1,5 +1,5 @@
 import Router, { useRouter } from "next/router";
-import { useCallback, useEffect, useLayoutEffect, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import { useMoralis } from "react-moralis";
 
 const EnsureProtectRoute = ({ children }) => {
@@ -38,4 +38,5 @@ const EnsureProtectRoute = ({ children }) => {
   return children;
 };
 
+// 🍾 you have done well 🍾 🎊
 export default EnsureProtectRoute;

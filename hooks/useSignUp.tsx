@@ -123,7 +123,7 @@ export default function useSignUp() {
 
   const validateForm = () => {
     // 👩‍🚒 Function validates form value passed into it.....
-    // 🟠 Also set error state of the for through dispatch
+    // 🟠 Also set error state of the form through dispatch
     const { email, password, confirmPassword, username } = state;
     if (username.length === 0) {
       dispatch({
@@ -203,4 +203,5 @@ export default function useSignUp() {
     isAuthenticating,
     user,
   };
+  // 🍾 you have done well 🍾 🎊
 }
