@@ -40,9 +40,10 @@ export default function useConnectWallet() {
           setErrorMessage(e.message);
           setLoading(false);
         }
-        setLoading(false);
+        // setLoading(false);
       }
     }
+    setLoading(false);
   };
 
   const onClose = () => {
