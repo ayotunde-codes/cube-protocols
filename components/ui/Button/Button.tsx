@@ -34,6 +34,7 @@ const Button = ({
     [s.medium]: size === "medium",
     [s.large]: size === "large",
   });
+
   return (
     <button className={btnClass} {...rest}>
       {loading ? <span className={s.loader} /> : text}

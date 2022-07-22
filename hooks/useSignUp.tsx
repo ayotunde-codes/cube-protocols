@@ -1,5 +1,5 @@
 import Router from "next/router";
-import { useEffect, useReducer } from "react";
+import { useEffect, useMemo, useReducer } from "react";
 import { useMoralis } from "react-moralis";
 import useErrorModalValue from "./useErrorModalValue";
 
@@ -182,8 +182,6 @@ export default function useSignUp() {
       await signup(username, password);
     }
     return;
-
-    // loadingFalse();
   };
 
   useEffect(() => {
@@ -193,6 +191,7 @@ export default function useSignUp() {
     // 🍃 Redirect Once signUp successfull
   }, [isAuthenticated, user]);
   const error = useErrorModalValue(authError);
+  const isLoading = useMemo(() => isAuthenticating, [isAuthenticating]);
 
   return {
     state,
@@ -200,7 +199,7 @@ export default function useSignUp() {
     handleSubmit,
     error,
     isAuthenticated,
-    isAuthenticating,
+    isLoading,
     user,
   };
   // 🍾 you have done well 🍾 🎊
