@@ -5,8 +5,13 @@ import Head from "next/head";
 import Link from "next/link";
 
 const SignUp = () => {
-  const { state, dispatch, handleSubmit, isAuthenticating, error } =
-    useSignUp();
+  const {
+    state,
+    dispatch,
+    handleSubmit,
+    isLoading: isAuthenticating,
+    error,
+  } = useSignUp();
 
   return (
     <>

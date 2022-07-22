@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useMemo, useState } from "react";
 import { useMoralis } from "react-moralis";
 
 export default function useConnectWallet() {
@@ -32,10 +32,10 @@ export default function useConnectWallet() {
         try {
           const web3 = await Moralis.enableWeb3();
           const link = await Moralis.link(window.ethereum.selectedAddress);
-          console.log(link, " ---lonked");
+          // console.log(link, " ---lonked");
           setLoading(false);
         } catch (e) {
-          console.log(e);
+          // console.log(e);
           setError(true);
           setErrorMessage(e.message);
           setLoading(false);
@@ -49,10 +49,11 @@ export default function useConnectWallet() {
   const onClose = () => {
     setError(false);
   };
+  const isLoading = useMemo(() => loading, [loading]);
   return {
     connectUserWallet,
     checkIfLinked,
-    loading,
+    isLoading,
     error,
     onClose,
     errorMessage,

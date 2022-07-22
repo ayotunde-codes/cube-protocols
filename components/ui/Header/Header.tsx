@@ -12,15 +12,21 @@ interface Props {
   pageName?: string;
 }
 const Header: FC<Props> = ({ pageName }) => {
-  const { connectUserWallet, loading, error, onClose, errorMessage } =
-    useConnectWallet();
+  const {
+    connectUserWallet,
+    isLoading: loading,
+    error,
+    onClose,
+    errorMessage,
+  } = useConnectWallet();
+
   const { ...rest } = useMoralis();
   const { account, user } = rest;
-  console.log({ ...rest }, "user");
-  console.log(
-    user?.attributes?.accounts?.includes(window.ethereum.selectedAddress) &&
-      account === window.ethereum.selectedAddress
-  );
+  // console.log({ ...rest }, "user");
+  // console.log(
+  //   user?.attributes?.accounts?.includes(window.ethereum.selectedAddress) &&
+  //     account === window.ethereum.selectedAddress
+  // );
   //   🍼check if user Adress is connected
   const connectText = useCallback(() => {
     if (!user?.attributes?.accounts) {

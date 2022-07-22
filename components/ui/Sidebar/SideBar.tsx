@@ -36,7 +36,7 @@ const SideBar = () => {
               src={
                 user?.attributes?.pfp ? user.attributes.pfp : defaultPfpImage
               }
-              alt="logo"
+              alt="profile"
               width={40}
               height={40}
               layout="responsive"
