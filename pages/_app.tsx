@@ -21,10 +21,8 @@ function MyApp({
   const Layout = Component.Layout ?? Noop;
   return (
     <MoralisProvider
-      appId="chkqQQDcegC08WHcdZSKLSIZ3A0kc1WZSyCdrRAh"
-      serverUrl="https://mzcuquzwglx2.usemoralis.com:2053/server"
-      // appId="ArgEurp6lmhndCV6LyrspZul7JyNRJal0q1cnllP"
-      // serverUrl="https://je3tfqn7dodg.usemoralis.com:2053/server"
+      appId={process.env.APP_ID}
+      serverUrl={process.env.SERVER_URL}
     >
       {/* 🌈 EnsureProtectRoute ensures protected routes 😅😅😃 */}
       <EnsureProtectRoute>
