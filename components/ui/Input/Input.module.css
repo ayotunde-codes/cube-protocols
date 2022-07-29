@@ -8,17 +8,27 @@
 }
 .input {
   @apply w-full p-3 text-sm rounded-full bg-base text-white;
+}
+.border {
   border: 1px solid var(--btn-accent);
-  /* background: none; */
-  &:focus {
-    /* @apply bg-base; */
-    outline: none;
-    background: none;
-    border-color: var(--btn-accent);
-  }
-  /* &:focus::-webkit-input-placeholder {
-    color: var(--btn-accent);
-  } */
+}
+
+.input:focus {
+  /* @apply bg-base; */
+  outline: none;
+  background: none;
+  border-color: var(--btn-accent);
+}
+.search {
+  padding-left: 45px;
+}
+
+.search:focus {
+  @apply bg-base;
+}
+.searchIcon {
+  @apply absolute top-1/4;
+  left: 12px;
 }
 .btn {
   @apply w-max h-max absolute top-1/2 right-4;

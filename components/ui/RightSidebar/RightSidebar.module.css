@@ -1,0 +1,76 @@
+.root {
+  display: none;
+  @screen md {
+    @apply grid bg-secondary-2 relative;
+    width: 290px;
+  }
+  @screen lg {
+    width: 300px;
+  }
+  @screen xl {
+    width: 320px;
+  }
+}
+.contentCase {
+  height: 100%;
+  min-height: 100vh;
+  /* min-height: 1338px; */
+  position: relative;
+}
+.wrapper {
+  /* height: 100%; */
+  position: sticky;
+  top: -150px;
+}
+.subHeading {
+  @apply flex;
+}
+.header {
+  padding: 1em 1.5em;
+}
+.tabsContainer {
+  /* margin-top: 50px; */
+  /* height: 100%; */
+  height: calc(100% - 120px);
+  /* margin-bottom: 20px; */
+  position: fixed;
+  top: 100px;
+}
+
+.trending {
+  /* height: 1220px; */
+  width: 100%;
+  /* background-color: aqua; */
+}
+.trending1 {
+  width: 100%;
+  background-color: aqua;
+}
+.trending2 {
+  height: 220px;
+  width: 100%;
+  margin-bottom: 20px;
+  background-color: aquamarine;
+}
+.trending3 {
+  height: 420px;
+  width: 100%;
+  background-color: red;
+}
+
+.searchContainer {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  padding: 1em 0;
+  @screen md {
+    @apply grid bg-secondary-2;
+    width: 290px;
+  }
+  @screen lg {
+    width: 300px;
+  }
+  @screen xl {
+    width: 320px;
+  }
+}

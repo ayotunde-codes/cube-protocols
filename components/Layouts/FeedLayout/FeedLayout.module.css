@@ -1,0 +1,8 @@
+.root {
+  @apply h-full relative;
+  flex: 1;
+}
+
+.container {
+  height: 100%;
+}

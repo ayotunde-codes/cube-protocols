@@ -1,6 +1,8 @@
 .root {
-  @apply w-full sticky top-0 bg-base py-4;
+  @apply w-full sticky bg-base py-4;
+  top: -0.5px;
   z-index: 1;
+  border-bottom: 1.6px solid #1f1e3e;
 }
 .content {
   @apply w-full flex justify-between items-center;

@@ -1,10 +1,20 @@
 .root {
-  @apply bg-secondary-2 flex flex-col items-center h-full;
-  width: 16%;
+  @apply bg-secondary-2 p-4  relative flex flex-col;
+  /* height: 100%; */
+  /* flex-grow: 1; */
+  width: 26%;
+}
+.contentWrapper {
+  @apply flex flex-col pr-4 items-center  h-full fixed top-0;
+  width: 250px;
+  position: fixed;
+  height: 100%;
+  top: 0;
+  left: 0;
 }
 .logo {
   /* @apply w-2/4; */
-  width: 15vmin;
+  width: 14vmin;
 }
 .container {
   @apply flex flex-col items-center flex-1;

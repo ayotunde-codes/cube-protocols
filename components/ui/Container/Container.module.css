@@ -1,3 +1,6 @@
 .root {
-  @apply px-6 mx-auto max-w-8xl;
+  @apply px-6 mx-auto max-w-8xl relative;
+}
+.noMargin {
+  margin: 0;
 }

@@ -17,74 +17,76 @@ const SideBar = () => {
   console.log(currentRoute);
   return (
     <div className={s.root}>
-      <div className={s.logoWrapper}>
-        <div className={s.logo}>
-          <Image
-            src="/images/white.png"
-            alt="logo"
-            width={200}
-            height={74}
-            layout="responsive"
-          />
-        </div>
-      </div>
-
-      <div className={s.container}>
-        <div className={s.userProfile}>
-          <div className={s.profileImage}>
+      <div className={s.contentWrapper}>
+        <div className={s.logoWrapper}>
+          <div className={s.logo}>
             <Image
-              src={
-                user?.attributes?.pfp ? user.attributes.pfp : defaultPfpImage
-              }
-              alt="profile"
-              width={40}
-              height={40}
+              src="/images/white.png"
+              alt="logo"
+              width={200}
+              height={74}
               layout="responsive"
             />
           </div>
-
-          <div className={s.userProfileDetails}>
-            <p className={s.username}>
-              {user?.attributes?.username ?? "username"}
-            </p>
-            <p className={s.userAddress}>
-              {user?.attributes?.ethAddress
-                ? `${user.attributes.ethAddress.slice(
-                    0,
-                    4
-                  )}...${user.attributes.ethAddress.slice(38)}`
-                : "No Address"}
-            </p>
-          </div>
         </div>
 
-        <nav className={s.nav}>
-          {navlink.map((item, index) => {
-            const { name, link, icon } = item;
-            const isActive = activeLink(currentRoute, link);
-            const textClass = cn(s.text, {
-              [s.activeText]: isActive,
-            });
-            return (
-              <Link href={link} key={index} passHref>
-                <a>
-                  <div className={s.link}>
-                    {icon({
-                      color: isActive ? "white" : "#7681AB",
-                      className: s.icon,
-                    })}
-                    <p className={textClass}>{name}</p>
-                  </div>
-                </a>
-              </Link>
-            );
-          })}
-        </nav>
-      </div>
-      <div className=" w-4/5 m-8">
-        <div className={s.link} onClick={() => logOut()}>
-          <LogOut className="cursor-pointer" />
-          <p className={s.text}>Logout</p>
+        <div className={s.container}>
+          <div className={s.userProfile}>
+            <div className={s.profileImage}>
+              <Image
+                src={
+                  user?.attributes?.pfp ? user.attributes.pfp : defaultPfpImage
+                }
+                alt="profile"
+                width={40}
+                height={40}
+                layout="responsive"
+              />
+            </div>
+
+            <div className={s.userProfileDetails}>
+              <p className={s.username}>
+                {user?.attributes?.username ?? "username"}
+              </p>
+              <p className={s.userAddress}>
+                {user?.attributes?.ethAddress
+                  ? `${user.attributes.ethAddress.slice(
+                      0,
+                      4
+                    )}...${user.attributes.ethAddress.slice(38)}`
+                  : "No Address"}
+              </p>
+            </div>
+          </div>
+
+          <nav className={s.nav}>
+            {navlink.map((item, index) => {
+              const { name, link, icon } = item;
+              const isActive = activeLink(currentRoute, link);
+              const textClass = cn(s.text, {
+                [s.activeText]: isActive,
+              });
+              return (
+                <Link href={link} key={index} passHref>
+                  <a>
+                    <div className={s.link}>
+                      {icon({
+                        color: isActive ? "white" : "#7681AB",
+                        className: s.icon,
+                      })}
+                      <p className={textClass}>{name}</p>
+                    </div>
+                  </a>
+                </Link>
+              );
+            })}
+          </nav>
+        </div>
+        <div className=" w-4/5 m-8">
+          <div className={s.link} onClick={() => logOut()}>
+            <LogOut className="cursor-pointer" />
+            <p className={s.text}>Logout</p>
+          </div>
         </div>
       </div>
     </div>

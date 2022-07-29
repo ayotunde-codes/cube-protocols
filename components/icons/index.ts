@@ -9,3 +9,4 @@ export { default as Chat } from "./Chat";
 export { default as Setting } from "./Setting";
 export { default as LogOut } from "./LogOut";
 export { default as Bell } from "./Bell";
+export { default as Search } from "./Search";

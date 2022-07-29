@@ -4,3 +4,4 @@ export { default as useUserDataUpdate } from "./useUserDataUpdate";
 export { default as useLogin } from "./useLogin";
 export { default as useErrorModalValue } from "./useErrorModalValue";
 export { default as useConnectWallet } from "./useConnectWallet";
+export { default as useScrollDirectionEffect } from "./useScrollDirectionEffect";
